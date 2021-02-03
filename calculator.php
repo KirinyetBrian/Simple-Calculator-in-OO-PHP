@@ -22,7 +22,7 @@ public function Calc(){
 	    if (is_numeric($this->value1) && is_numeric($this->value2)) {
             //check what operator has been chosen
             switch ($this->operator) {
-	       //Addition
+	         //Addition
                 case '+':
                     $this->result = $this->value1 + $this->value2;
                         return $this->result;
@@ -30,7 +30,7 @@ public function Calc(){
                         return $this->value2;
                         return $this->value1;
                     break;
-	        //substraction
+	           //substraction
                 case '-':
                     $this->result = $this->value1 - $this->value2;
                         return $this->result;
@@ -38,7 +38,7 @@ public function Calc(){
                         return $this->value2;
                         return $this->value1;
                     break;
-	        //Division
+	          //Division
                 case '/':
                 $this->result = $this->value1 / $this->value2;
                         return $this->result;
@@ -46,7 +46,7 @@ public function Calc(){
                         return $this->value2;
                         return $this->value1;
                     break;
-	        //multiplication
+	          //multiplication
                 case '*':
                     $this->result= $this->value1 * $this->value2;
                         return $this->result;
