@@ -6,5 +6,5 @@ OOP-Calculator is a PHP simple application built with bootstrap and incorporates
 Code Changes are welcome.
 
 ## Ownership
-This project was forked from  [KirinyetBrian](https://github.com/KirinyetBrian).
+This project's original owner is [KirinyetBrian](https://github.com/KirinyetBrian).
 
