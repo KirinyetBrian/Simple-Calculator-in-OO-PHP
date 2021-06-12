@@ -41,12 +41,12 @@ include 'calculator.php';
 			</div>
 			<div class="col-md-4">
 				<?php
-				$addition = new Calculator('value1', 'value2', 'operator', 'result');
+				$calculation = new Calculator('value1', 'value2', 'operator', 'result');
 				?>
 				<div class="alert alert-dark" role="alert" style="width: 200px;">
 					The solution is:
 					 <?php
-						echo $addition->Calc('value1', 'value2', 'operator');
+						echo $calculation->Calc('value1', 'value2', 'operator');
 					
 					?>
 				</div>
