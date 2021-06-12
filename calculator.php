@@ -6,18 +6,32 @@ Class Calculator{
     public $result;
     public $operator;
 
-public function __construct($value1,$result, $value2,$operator){
+public function __construct($value1,$result, $value2, $operator){
     $this->value1 = $value1;
     $this->value2 = $value2;
     $this->operator = $operator;
     $this->result = $result; 
 }
+//Take the values from the form & validate 
+public function form_input($data){
+	
+    $data = trim($data);
+    /**
+    * Not sure to validate the following 
+    * because of the operators which are special characters
+    */
+    //$data = stripslashes($data);
+    //$data = htmlspecialchars($data);
+    return $data;
+}
 public function Calc(){
-       //Take the values from the form
-	if(isset($_POST['submit'])) {
-	$this->value1 = $_POST['value1'];
-	$this->value2 = $_POST['value2'];
-        $this->operator = $_POST['operator'];
+	
+    //Take the  vaidated values from the form
+    if(isset($_POST['submit'])) {
+    	$this->value1 = form_input($_POST['value1']);
+    	$this->value2 = form_input($_POST['value2']);
+    	$this->operator = form_input($_POST['operator']);
+		
            //check if the inputs are numeric
 	    if (is_numeric($this->value1) && is_numeric($this->value2)) {
             //check what operator has been chosen
