@@ -30,7 +30,7 @@ public function Calc(){
                         return $this->value2;
                         return $this->value1;
                     break;
-	           //substraction
+	           //subtraction
                 case '-':
                     $this->result = $this->value1 - $this->value2;
                         return $this->result;
@@ -56,12 +56,12 @@ public function Calc(){
                     break;               
                 //Else return error
                 default:
-                    echo "NON EXISTING OPERATOR!!!";
+                    echo "The Requested Operation cannot be achieved!!!";
                     break;
             }
          //if the number is not numberix
         }else{
-                echo "ERROR CANNOT CALCULATE!!. <br> Please enter numeric values only";
+                echo "ERROR!, Cannot Calculate Non-Numeric Values!. <br> Please try again with numeric values only";
             }
    }
 }
