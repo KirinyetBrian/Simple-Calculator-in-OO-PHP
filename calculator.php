@@ -28,6 +28,7 @@ public function Calc(){
 	
     //Take the  vaidated values from the form
     if(isset($_POST['submit'])) {
+	    
     	$this->value1 = form_input($_POST['value1']);
     	$this->value2 = form_input($_POST['value2']);
     	$this->operator = form_input($_POST['operator']);
@@ -38,36 +39,24 @@ public function Calc(){
             switch ($this->operator) {
 	         //Addition
                 case '+':
-                    $this->result = $this->value1 + $this->value2;
+                    $this->result = $this->value1 + $this->value2;			    
                         return $this->result;
-
-                        return $this->value2;
-                        return $this->value1;
                     break;
 	           //subtraction
                 case '-':
                     $this->result = $this->value1 - $this->value2;
                         return $this->result;
-                        
-                        return $this->value2;
-                        return $this->value1;
                     break;
 	          //Division
                 case '/':
                 $this->result = $this->value1 / $this->value2;
                         return $this->result;
-
-                        return $this->value2;
-                        return $this->value1;
                     break;
 	          //multiplication
                 case '*':
                     $this->result= $this->value1 * $this->value2;
-                        return $this->result;
-
-                        return $this->value2;
-                        return $this->value1;
-                    break;               
+                       return $this->result;
+                    break;            
                 //Else return error
                 default:
                     echo "The Requested Operation cannot be achieved!!!";
@@ -75,8 +64,8 @@ public function Calc(){
             }
          //if the number is not numberix
         }else{
-                echo "ERROR!, Cannot Calculate Non-Numeric Values!. <br> Please try again with numeric values only";
-            }
+          echo "ERROR!, Cannot Calculate Non-Numeric Values!. <br> Please try again with numeric values only";
+         }
    }
 }
 }
