@@ -1,73 +1,73 @@
 <?php
-Class Calculator
-{
-public $value1;
-public $value2;
-public $result;
-public $operator;
+Class Calculator{
+    //declare variables 
+    public $value1;
+    public $value2;
+    public $result;
+    public $operator;
 
-public function Calc($value1,$value2,$operator)
-	{
-
-	if(isset($_POST['submit']))
-		{
-
-			$value1=$this->value1;
-			$value2=$this->value2;
-			$operator=$this->operator;
-
-
-			$value1=$_POST['value1'];
-			$value2=$_POST['value2'];
-			$operator=$_POST['operator'];
-
-
-			
-				if($operator == '+') 
-					{			 
-					$this->result=$value1 + $value2;
-					return $this->result;
-
-					return $value2;
-					return $value1;
-					}
-							
-
-				if($operator== '-')
-						
-					{
-
-					$this->result=$value1 - $value2;
-					return $this->result;
-					}	
-							
-				if($operator== '/')
-						 
-					{
-
-					$this->result=$value1 / $value2;
-					return $this->result;
-
-					}
-				if($operator== '*')
-						 
-					{
-
-					$this->result=$value1 * $value2;
-					return $this->result;
-
-					}
-						else
-
-						{
-							echo "NON EXISTING OPERATOR!!!";
-						}
-		}
-
-	}
-
+public function __construct($value1,$result, $value2, $operator){
+    $this->value1 = $value1;
+    $this->value2 = $value2;
+    $this->operator = $operator;
+    $this->result = $result; 
 }
-			
+//Take the values from the form & validate 
+private function validated_form_input($data){
 	
-
+    $data = trim($data);
+ 
+    // Not sure to validate the following 
+    // because of the operators which are special characters
+  
+    //$data = stripslashes($data);
+    //$data = htmlspecialchars($data);
+	
+    return $data;
+}
+public function Calc(){
+	
+    //Take the  vaidated values from the form
+    if(isset($_POST['submit'])) {
+	    
+    	$this->value1 = validated_form_input($_POST['value1']);
+    	$this->value2 = validated_form_input($_POST['value2']);
+    	$this->operator = validated_form_input($_POST['operator']);
+		
+           //check if the inputs are numeric
+	    if (is_numeric($this->value1) && is_numeric($this->value2)) {
+            //check what operator has been chosen
+            switch ($this->operator) {
+	         //Addition
+                case '+':
+                    $this->result = $this->value1 + $this->value2;			    
+                        return $this->result;
+                    break;
+	           //subtraction
+                case '-':
+                    $this->result = $this->value1 - $this->value2;
+                        return $this->result;
+                    break;
+	          //Division
+                case '/':
+                $this->result = $this->value1 / $this->value2;
+                        return $this->result;
+                    break;
+	          //multiplication
+                case '*':
+                    $this->result= $this->value1 * $this->value2;
+                       return $this->result;
+                    break;            
+                //Else return error
+                default:
+                    echo "The Requested Operation cannot be achieved!!!";
+                    break;
+            }
+         //if the number is not numberix
+        }else{
+          echo "ERROR!, Cannot Calculate Non-Numeric Values!. <br> Please try again with numeric values only";
+         }
+   }
+}
+}
 
